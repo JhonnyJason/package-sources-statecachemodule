@@ -5,7 +5,7 @@ toJson = (obj) -> JSON.stringify(obj, null, 4)
 olog = (obj) -> log "\n" + toJson(obj)
 #endregion
 
-import * as store from "./statesavermodule"
+import * as store from "./statesavermodule.js"
 
 
 ############################################################
@@ -174,7 +174,7 @@ export remove = (id) ->
 export logCacheState = ->
     logString = "cacheState:\n"
     if cacheHeadEntry?
-        logString += "cacheHead Id: "+cacheHeadEntry.id
+        logString += "cacheHead Id: "+cacheHeadEntry.id+"\n"
         logString += cacheHeadEntry.toString()
 
         entry = cacheHeadEntry.previousEntry
@@ -187,6 +187,6 @@ export logCacheState = ->
     logString += "- - - - -\n"
     # logString += toJson({jsonCache})
     logString += toJson({cacheSize, maxCacheSize})
-    log logString
+    log logString+"\n"
 
 #endregion
