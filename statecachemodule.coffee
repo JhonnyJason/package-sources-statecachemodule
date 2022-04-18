@@ -18,13 +18,14 @@ cacheHeadEntry = null
 cacheTailEntry = null
 idToCacheEntry = {}
 cacheSize = 0
-maxCacheSize = 4
+maxCacheSize = 64
 
 defaultState = null
 ############################################################
 export initialize = (options) ->
     if options
         defaultState = options.defaultState
+        if options.maxCacheSize? then maxCacheSize = options.maxCacheSize
         store.initialize(options.basePath)
     else
         store.initialize()
